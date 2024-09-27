@@ -9,11 +9,11 @@ classDiagram
         -manutencoes : List<Manutencao>
         -abastecimentos : List<Abastecimento>
         -motorista : Motorista
-        +setModelo()
-        +setPlaca()
-        +setAnoFabricacao()
-        +setQuilometragem()
-        +setTipoCombustivel()
+        +setModelo(modelo : String)
+        +setPlaca(placa : String)
+        +setAnoFabricacao(ano : int)
+        +setQuilometragem(quilometragem : float)
+        +setTipoCombustivel(tipo : String)
         +cadastrarVeiculo()
         +atualizarVeiculo()
         +baixarVeiculo()
@@ -56,10 +56,10 @@ classDiagram
         -veiculos : List<Veiculo>
         -infrações : List<Infracao>
         -rotas : List<Rota>
-        +setNome()
-        +setCpf()
-        +setNumeroCNH()
-        +setTelefone()
+        +setNome(nome : String)
+        +setCpf(cpf : String)
+        +setNumeroCNH(cnh : String)
+        +setTelefone(telefone : String)
         +cadastrarMotorista()
         +editarMotorista()
         +consultarHistorico()
@@ -71,10 +71,10 @@ classDiagram
         -data : Date
         -detalhes : String
         -concluida : boolean
-        +setTipo()
-        +setData()
-        +setDetalhes()
-        +setConcluida()
+        +setTipo(tipo : String)
+        +setData(data : Date)
+        +setDetalhes(detalhes : String)
+        +setConcluida(concluida : boolean)
         +agendarManutencao()
         +registrarConcluida()
     }
@@ -83,32 +83,32 @@ classDiagram
         -data : Date
         -valor : float
         -quantidade : float
-        +setData()
-        +setValor()
-        +setQuantidade()
+        +setData(data : Date)
+        +setValor(valor : float)
+        +setQuantidade(quantidade : float)
         +registrarAbastecimento()
     }
 
     class Infracao {
         -descricao : String
         -data : Date
-        +setDescricao()
-        +setData()
+        +setDescricao(descricao : String)
+        +setData(data : Date)
     }
 
     class Rota {
         -destino : String
         -pontosParada : List<String>
-        +setDestino()
-        +setPontosParada()
+        +setDestino(destino : String)
+        +setPontosParada(pontos : List<String>)
         +criarRota()
     }
 
     class Documento {
         -tipo : String
         -dataVencimento : Date
-        +setTipo()
-        +setDataVencimento()
+        +setTipo(tipo : String)
+        +setDataVencimento(data : Date)
         +uploadDocumento()
     }
 
@@ -116,12 +116,14 @@ classDiagram
     Veiculo *--|> Carro
     Veiculo *--|> Moto
 
+
     Veiculo --> Motorista
     Veiculo --> Manutencao
     Veiculo --> Abastecimento
     Motorista --> Rota
     Motorista --> Infracao
     Motorista --> Documento
+
 
 
 ```mermaid
